@@ -28,17 +28,26 @@ def display_instruct():
     print('''\tZwyciężysz, o ile zajmiesz trzy sąsiadujące ze sobą pola: 
         poziomo, pionowo lub ukośnie. 
 
-        Twój przykładowy tryumf może wyglądać tak
+                     |       |
+                 7   |   8   |   9  
+              _______|_______|_______
+                     |       |
+                 4   |   5   |   6
+              _______|_______|_______
+                     |       |
+                 1   |   2   |   3 
+                     |       |      
 
-                 1       2       3
+        Twój przykładowy tryumf może wyglądać tak 
+
                      |       |
-            1    +   |       |   o  
+                 +   |       |   o  
               _______|_______|_______
                      |       |
-            2        |   +   |   o
+                     |   +   |   o
               _______|_______|_______
                      |       |
-            3        |       |   + 
+                     |       |   + 
                      |       |           
     ''')
     print(
