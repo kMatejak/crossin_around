@@ -86,15 +86,15 @@ def new_grid():
 
 def show_grid(grid):
     grid_view = (f'''
-                1        2       3
+                                  
                      |       |
-            1      {grid[0][0]} |   {grid[0][1]}   |   {grid[0][2]}  
+                   {grid[0]} |   {grid[1]}   |   {grid[2]}  
               _______|_______|_______
                      |       |
-            2    {grid[1][0]}   |   {grid[1][1]}   |   {grid[1][2]}
+                 {grid[3]}   |   {grid[4]}   |   {grid[5]}
               _______|_______|_______
                      |       |
-            3      {grid[2][0]} |   {grid[2][1]}   |   {grid[2][2]}  
+                   {grid[6]} |   {grid[7]}   |   {grid[8]}  
                      |       |
         ''')
     print(grid_view) 
