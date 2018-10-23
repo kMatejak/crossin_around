@@ -3,10 +3,10 @@ X = '+'
 O = 'o'
 EMPTY = ' '
 TIE = 'TIE'
-GRID_SIZE = 9
+GRID_SIZE = 10
 
 # PROGRAM
-def display_instruct():
+def show_instruction():
     """show game instruction"""
     print('''
      _____                   _       _    ___                            _ 
@@ -121,23 +121,22 @@ def legal_moves(grid):
 def winner(grid):
     '''Indicate the winner of the game'''
     WAYS_TO_WIN = (
-        (7, 8, 9),
-        (4, 5, 6),
-        (1, 2, 3),
-        (7, 4, 1),
-        (8, 5, 2),
-        (9, 6, 3),
-        (7, 5, 3),
-        (9, 5, 1))
+            (7, 8, 9),
+            (4, 5, 6),
+            (1, 2, 3),
+            (7, 4, 1),
+            (8, 5, 2),
+            (9, 6, 3),
+            (7, 5, 3),
+            (9, 5, 1))
 
     for row in WAYS_TO_WIN:
-        if grid[0][0] == grid[0][1] == grid[0][2] != EMPTY:
-            
+        if grid[row[0]] == grid[row[1]] == grid[row[2]] != EMPTY:  
             winner = grid[row[0]]
             return winner
 
-        if EMPTY not in grid:
-            return TIE
+    if EMPTY not in grid:
+        return TIE
 
     return None 
 
@@ -188,17 +187,17 @@ def main():
     while n == ' ':
         show_instruction()
         n = input()
-    sultan, crusader = start_game()
+    start_game()
     turn = X
     grid = new_grid()
     show_grid(grid)
 
     while not winner(grid):
         if turn == crusader:
-            move = crusader_move(grid, crusader)
+            move = player_move(grid, crusader)
             grid[move] = crusader
         else:
-            move = sultan_move(grid, sultan, crusader)
+            move = player_move(grid, sultan, crusader)
             grid[move] = sultan
         show_grid(grid)
         turn = next_turn(turn)
