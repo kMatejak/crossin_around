@@ -9,6 +9,7 @@ SHOTS = [1,2,3,4,5,6,7,8,9]
 # PROGRAM
 def show_instruction():
     """show game instruction"""
+
     print('''
      _____                   _       _    ___                            _ 
     /  __ \                 (_)     ( )  / _ \                          | |
@@ -51,10 +52,8 @@ def show_instruction():
                      |       |   + 
                      |       |           
     ''')
-    print(
-    '{:>47}'.format('Gotowy?'), '\n\n', 
-    '{:>31}'.format('NAJEŻDŻAJ!'), '\n\t', 
-    '{:>10}'.format('\n\tDociśnij dowolnego konia [klawiszem Enter], aby kontynuować...'), '\n'
+    print( 
+    '{:>10}'.format('\tDociśnij dowolnego konia [klawiszem Enter], aby kontynuować...')
     )
 
 
@@ -69,7 +68,7 @@ def ask_yes_no(question):
 def ask_number(question):
     """Ask about the coordinates of the selected field"""
     response = None
-    while response not in shots:
+    while response not in SHOTS:
         response = int(input(question))
     return response
 
@@ -78,11 +77,11 @@ def start_game():
     """Indicates the Crusader as the first player"""
     go_first = ask_yes_no('Czy jesteś Krzyżowcem? (t/n): ')
     if go_first == 't':
-        print('\nPOCZYNAJ')
+        print('\nNAJEŹDŻAJ!!!')
     else:
         print('\nZapytam więc jeszcze raz... ')
         start_game()
-    return crusader
+    return X
 
 
 def new_grid():
@@ -141,7 +140,7 @@ def winner(grid):
     return None 
 
 
-def player_moves(grid, crusader):
+def player_moves(grid):
     '''Do crusader move'''
     grid = grid[:]
     legal = legal_moves(grid)
@@ -162,24 +161,21 @@ def next_turn(turn):
         return X
 
 
-def congrat_winner(the_winner, sultan, crusader):
+def congrat_winner(the_winner):
     if the_winner != TIE:
         print(the_winner, 'jest zwycięzcą!\n')
     else:
         print('Remis!\n')
 
-    if the_winner == sultan:
-        print("Jak przewidywałem, Człowieku, jeszcze raz zostałem triumfatorem.  \n" \
-              "Dowód na to, że komputery przewyższają ludzi pod każdym względem.")
+    if the_winner == O:
+        print("Sultan wins")
 
-    elif the_winner == crusader:
-        print("No nie!  To niemożliwe!  Jakoś udało Ci się mnie zwieść, Człowieku. \n" \
-              "Ale to się nigdy nie powtórzy!  Ja, komputer, przyrzekam Ci to!")
+    elif the_winner == X:
+        print("Crusader wins")
 
     elif the_winner == TIE:
-        print("Miałeś mnóstwo szczęścia, Człowieku, i jakoś udało Ci się ze mną " \
-              "zremisować. \nŚwiętuj ten dzień... bo to najlepszy wynik, jaki możesz " \
-              "kiedykolwiek osiągnąć.")
+        print("Miałeś mnóstwo szczęścia, udało Ci się " \
+              "zremisować.")
 
 
 def main():
@@ -193,17 +189,17 @@ def main():
     show_grid(grid)
 
     while not winner(grid):
-        if turn == crusader:
-            move = player_move(grid, crusader)
-            grid[move] = crusader
+        if turn == X:
+            move = player_moves(grid)
+            grid[move] = X
         else:
-            move = player_move(grid, sultan, crusader)
-            grid[move] = sultan
+            move = player_moves(grid)
+            grid[move] = O
         show_grid(grid)
         turn = next_turn(turn)
 
     the_winner = winner(grid)
-    congrat_winner(the_winner, sultan, crusader)
+    congrat_winner(the_winner)
 
 
 # PROGRAM EXECUTE
