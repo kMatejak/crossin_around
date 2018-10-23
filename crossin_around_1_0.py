@@ -4,6 +4,7 @@ O = 'o'
 EMPTY = ' '
 TIE = 'TIE'
 GRID_SIZE = 10
+SHOTS = [1,2,3,4,5,6,7,8,9]
 
 # PROGRAM
 def show_instruction():
@@ -78,7 +79,6 @@ def start_game():
     go_first = ask_yes_no('Czy jesteś Krzyżowcem? (t/n): ')
     if go_first == 't':
         print('\nPOCZYNAJ')
-        crusader = X
     else:
         print('\nZapytam więc jeszcze raz... ')
         start_game()
@@ -97,13 +97,13 @@ def show_grid(grid):
     grid_view = (f'''
                                   
                      |       |
-                   {grid[0]} |   {grid[1]}   |   {grid[2]}  
+                   {grid[7]} |   {grid[8]}   |   {grid[9]}  
               _______|_______|_______
                      |       |
-                 {grid[3]}   |   {grid[4]}   |   {grid[5]}
+                 {grid[4]}   |   {grid[5]}   |   {grid[6]}
               _______|_______|_______
                      |       |
-                   {grid[6]} |   {grid[7]}   |   {grid[8]}  
+                   {grid[1]} |   {grid[2]}   |   {grid[3]}  
                      |       |
         ''')
     print(grid_view) 
@@ -112,9 +112,9 @@ def show_grid(grid):
 def legal_moves(grid):
     """Create list of legal moves"""
     moves = []
-    for spam in shots:
-        if grid[spam] == EMPTY:
-            moves.append(spam)
+    for field in SHOTS:
+        if grid[field] == EMPTY:
+            moves.append(field)
     return moves
 
 
