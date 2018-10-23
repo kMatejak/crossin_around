@@ -70,11 +70,10 @@ def start_game():
     if go_first == 't':
         print('\nPOCZYNAJ')
         crusader = X
-        sultan = O
     else:
         print('\nZapytam więc jeszcze raz... ')
         start_game()
-    return crusader, sultan
+    return crusader
 
 
 def new_grid():
