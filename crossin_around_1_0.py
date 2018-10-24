@@ -52,9 +52,7 @@ def show_instruction():
                      |       |   + 
                      |       |           
     ''')
-    print( 
-    '{:>10}'.format('\tDociśnij dowolnego konia [klawiszem Enter], aby kontynuować...')
-    )
+    print('\tDociśnij dowolnego konia [klawiszem Enter], aby kontynuować...')
 
 
 def ask_yes_no(question):
@@ -66,7 +64,7 @@ def ask_yes_no(question):
 
 
 def ask_number(question):
-    """Ask about the coordinates of the selected field"""
+    """Ask about the number of the selected field"""
     response = None
     while response not in SHOTS:
         response = int(input(question))
@@ -96,13 +94,13 @@ def show_grid(grid):
     grid_view = (f'''
                                   
                      |       |
-                   {grid[7]} |   {grid[8]}   |   {grid[9]}  
+                 {grid[7]}   |   {grid[8]}   |   {grid[9]}  
               _______|_______|_______
                      |       |
                  {grid[4]}   |   {grid[5]}   |   {grid[6]}
               _______|_______|_______
                      |       |
-                   {grid[1]} |   {grid[2]}   |   {grid[3]}  
+                 {grid[1]}   |   {grid[2]}   |   {grid[3]}  
                      |       |
         ''')
     print(grid_view) 
