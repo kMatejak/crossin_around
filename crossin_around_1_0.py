@@ -30,29 +30,45 @@ def show_instruction():
     print('''\tZwyciężysz, o ile zajmiesz trzy sąsiadujące ze sobą pola: 
         poziomo, pionowo lub ukośnie. 
 
-                     |       |
-                 7   |   8   |   9  
-              _______|_______|_______
-                     |       |
-                 4   |   5   |   6
-              _______|_______|_______
-                     |       |
-                 1   |   2   |   3 
-                     |       |      
+                         |       |
+                     7   |   8   |   9  
+                  _______|_______|_______
+                         |       |
+                     4   |   5   |   6
+                  _______|_______|_______
+                         |       |
+                     1   |   2   |   3 
+                         |       |      
 
         Twój przykładowy tryumf może wyglądać tak 
 
-                     |       |
-                 +   |       |   o  
-              _______|_______|_______
-                     |       |
-                     |   +   |   o
-              _______|_______|_______
-                     |       |
-                     |       |   + 
-                     |       |           
+                         |       |
+                     +   |       |   o  
+                  _______|_______|_______
+                         |       |
+                         |   +   |   o
+                  _______|_______|_______
+                         |       |
+                         |       |   + 
+                         |       |           
     ''')
-    print('\tDociśnij dowolnego konia [klawiszem Enter], aby kontynuować...')
+    x = input('\tDociśnij dowolnego konia [klawiszem Enter], aby kontynuować...')
+
+
+def show_grid_template_with_numbers():
+    print('''
+    
+
+                         |       |
+                     7   |   8   |   9  
+                  _______|_______|_______
+                         |       |
+                     4   |   5   |   6
+                  _______|_______|_______
+                         |       |
+                     1   |   2   |   3 
+                         |       |      
+    ''')
 
 
 def ask_yes_no(question):
@@ -73,7 +89,8 @@ def ask_number(question):
 
 def start_game():
     """Indicates the Crusader as the first player"""
-    go_first = ask_yes_no('Czy jesteś Krzyżowcem? (t/n): ')
+    great_white_space_printer()
+    go_first = ask_yes_no('\t\tCzy jesteś Krzyżowcem? (t/n): ')
     if go_first == 't':
         pass
     else:
@@ -91,40 +108,75 @@ def new_grid():
 
 
 def print_player_prod():
-    print('\tNAJEŻDŻAJ!!!')
+    print('\t\tNAJEŻDŻAJ!!!')
+
+
+def great_white_space_printer():
+    print(''' 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ''')
 
 
 def show_grid(grid):
-    grid_view = (f'''
+    grid_view = (f''' 
 
 
+                         |       |
+                     {grid[7]}   |   {grid[8]}   |   {grid[9]}  
+                  _______|_______|_______
+                         |       |
+                     {grid[4]}   |   {grid[5]}   |   {grid[6]}
+                  _______|_______|_______
+                         |       |
+                     {grid[1]}   |   {grid[2]}   |   {grid[3]}  
+                         |       |
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                  
-                     |       |
-                 {grid[7]}   |   {grid[8]}   |   {grid[9]}  
-              _______|_______|_______
-                     |       |
-                 {grid[4]}   |   {grid[5]}   |   {grid[6]}
-              _______|_______|_______
-                     |       |
-                 {grid[1]}   |   {grid[2]}   |   {grid[3]}  
-                     |       |
-        ''')
+    ''')
     print(grid_view) 
 
 
@@ -166,10 +218,9 @@ def player_moves(grid):
     legal = legal_moves(grid)
     move = None
     while move not in legal:
-        move = ask_number("Wskaż pole, które chcesz zająć: ")
+        move = ask_number("\t\tWskaż pole, \n\t\tktóre chcesz zająć: ")
         if move not in legal:
-            print("\nTo pole jest już oblegane przez nieprzyjaciela.")
-    print("Świetnie")
+            print("\n\t\tTo pole jest już oblegane!")
     return move
 
 
@@ -199,15 +250,16 @@ def congrat_winner(the_winner):
 
 
 def main():
-    n = ' '
-    while n == ' ':
-        show_instruction()
-        n = input()
+    n = 'cxfdksuj'
+    while n == 'cxfdksuj':
+        n = show_instruction()
     start_game()
     turn = X
     grid = new_grid()
-    show_grid(grid)
+    great_white_space_printer()
     print_player_prod()
+    show_grid_template_with_numbers()
+    show_grid(grid)
 
     while not winner(grid):
         if turn == X:
@@ -216,6 +268,8 @@ def main():
         else:
             move = player_moves(grid)
             grid[move] = O
+        great_white_space_printer() 
+        show_grid_template_with_numbers()
         show_grid(grid)
         turn = next_turn(turn)
 
