@@ -75,9 +75,9 @@ def start_game():
     """Indicates the Crusader as the first player"""
     go_first = ask_yes_no('Czy jesteś Krzyżowcem? (t/n): ')
     if go_first == 't':
-        print('\nNAJEŹDŻAJ!!!')
+        pass
     else:
-        print('\nZapytam więc jeszcze raz... ')
+        print('\nZapytam więc jeszcze raz...\n')
         start_game()
     return X
 
@@ -90,8 +90,30 @@ def new_grid():
     return grid 
 
 
+def print_player_prod():
+    print('\tNAJEŻDŻAJ!!!')
+
+
 def show_grid(grid):
     grid_view = (f'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                   
                      |       |
                  {grid[7]}   |   {grid[8]}   |   {grid[9]}  
@@ -185,6 +207,7 @@ def main():
     turn = X
     grid = new_grid()
     show_grid(grid)
+    print_player_prod()
 
     while not winner(grid):
         if turn == X:
