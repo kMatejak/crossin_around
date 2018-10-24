@@ -59,6 +59,7 @@ def show_grid_template_with_numbers():
     print('''
     
 
+
                          |       |
                      7   |   8   |   9  
                   _______|_______|_______
@@ -74,7 +75,7 @@ def show_grid_template_with_numbers():
 def ask_yes_no(question):
     """Ask a question that you can answer 'yes' or 'no'"""
     response = None
-    while response not in ('t', 'n'):
+    while response not in ('t', 'n', ''):
         response = input(question).lower()
     return response
 
@@ -89,12 +90,15 @@ def ask_number(question):
 
 def start_game():
     """Indicates the Crusader as the first player"""
-    great_white_space_printer()
     go_first = ask_yes_no('\t\tCzy jesteś Krzyżowcem? (t/n): ')
     if go_first == 't':
         pass
+    elif go_first == '':
+        print('\n\t\tDoprawdy, nie rozumiem twojego milczenia. \
+        \n\t\tJeszcze raz:\n')
+        start_game()
     else:
-        print('\nZapytam więc jeszcze raz...\n')
+        print('\n\t\tPytam więc jeszcze raz...\n')
         start_game()
     return X
 
@@ -201,13 +205,13 @@ def winner(grid):
             (7, 5, 3),
             (9, 5, 1))
 
+    # if EMPTY not in grid[1:9]:
+    #     return TIE
+
     for row in WAYS_TO_WIN:
         if grid[row[0]] == grid[row[1]] == grid[row[2]] != EMPTY:  
             winner = grid[row[0]]
             return winner
-
-    if EMPTY not in grid:
-        return TIE
 
     return None 
 
@@ -236,23 +240,25 @@ def congrat_winner(the_winner):
     if the_winner != TIE:
         print(the_winner, 'jest zwycięzcą!\n')
     else:
-        print('Remis!\n')
+        print('\t\tRemis!\n')
 
     if the_winner == O:
-        print("Sultan wins")
+        print('\t\tSultan wins')
 
     elif the_winner == X:
-        print("Crusader wins")
+        print('\t\tCrusader wins')
 
     elif the_winner == TIE:
-        print("Miałeś mnóstwo szczęścia, udało Ci się " \
-              "zremisować.")
+        print('\t\tzremisowałeś')
 
 
 def main():
+# INSTRUCTION
     n = 'cxfdksuj'
     while n == 'cxfdksuj':
         n = show_instruction()
+# START GAME
+    great_white_space_printer()
     start_game()
     turn = X
     grid = new_grid()
@@ -261,7 +267,9 @@ def main():
     show_grid_template_with_numbers()
     show_grid(grid)
 
-    while not winner(grid):
+# PLAY GAME
+    the_winner = winner(grid)
+    while not the_winner:
         if turn == X:
             move = player_moves(grid)
             grid[move] = X
@@ -273,7 +281,7 @@ def main():
         show_grid(grid)
         turn = next_turn(turn)
 
-    the_winner = winner(grid)
+# END GAME
     congrat_winner(the_winner)
 
 
