@@ -116,53 +116,7 @@ def print_player_prod():
 
 
 def great_white_space_printer():
-    print(''' 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    ''')
+    print('\n'*50)
 
 
 def show_grid(grid):
@@ -204,14 +158,14 @@ def winner(grid):
             (9, 6, 3),
             (7, 5, 3),
             (9, 5, 1))
-
-    # if EMPTY not in grid[1:9]:
-    #     return TIE
-
+    
     for row in WAYS_TO_WIN:
         if grid[row[0]] == grid[row[1]] == grid[row[2]] != EMPTY:  
             winner = grid[row[0]]
             return winner
+
+    if EMPTY not in grid[1:]:
+        return TIE
 
     return None 
 
@@ -237,18 +191,13 @@ def next_turn(turn):
 
 
 def congrat_winner(the_winner):
-    if the_winner != TIE:
-        print(the_winner, 'jest zwycięzcą!\n')
-    else:
-        print('\t\tRemis!\n')
-
     if the_winner == O:
         print('\t\tSultan wins')
 
     elif the_winner == X:
         print('\t\tCrusader wins')
 
-    elif the_winner == TIE:
+    else:
         print('\t\tzremisowałeś')
 
 
@@ -268,8 +217,8 @@ def main():
     show_grid(grid)
 
 # PLAY GAME
-    the_winner = winner(grid)
-    while not the_winner:
+    # the_winner = winner(grid)
+    while not winner(grid):
         if turn == X:
             move = player_moves(grid)
             grid[move] = X
@@ -280,6 +229,7 @@ def main():
         show_grid_template_with_numbers()
         show_grid(grid)
         turn = next_turn(turn)
+        the_winner = winner(grid)
 
 # END GAME
     congrat_winner(the_winner)
