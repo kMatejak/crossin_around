@@ -26,7 +26,7 @@ def show_instruction():
     '\tDostępna jest plansza składająca się z 9 pól, na których rozeg-\n' \
     '\tra się ta krwawa walka. Krzyżowiec krzyżuje (jakżeby inaczej),\n' \
     '\ta Sułtan puszcza toksyczne kółka z fajki wodnej. Ruch odbywa\n' \
-    '\tsię na zmianę poprzez wskazanie współrzędnych pustego pola.\n')
+    '\tsię na zmianę poprzez wskazanie numeru pustego pola.\n')
     print('''\tZwyciężysz, o ile zajmiesz trzy sąsiadujące ze sobą pola: 
         poziomo, pionowo lub ukośnie. 
 
@@ -75,7 +75,7 @@ def show_grid_template_with_numbers():
 def ask_yes_no(question):
     """Ask a question that you can answer 'yes' or 'no'"""
     response = None
-    while response not in ('t', 'n', ''):
+    while response not in ('t', 'n', '', 'maciej jest spoko'):
         response = input(question).lower()
     return response
 
@@ -93,6 +93,9 @@ def start_game():
     go_first = ask_yes_no('\t\tCzy jesteś Krzyżowcem? (t/n): ')
     if go_first == 't':
         pass
+    elif go_first == 'maciej jest spoko':
+        print('\n\t\tTak, Maciej jest naprawdę spoko ziomkiem. Nawet wtedy, gdy... \n\t\tNo dobrze, ale jeszcze raz:\n')
+        start_game()
     elif go_first == '':
         print('\n\t\tDoprawdy, nie rozumiem twojego milczenia. \
         \n\t\tJeszcze raz:\n')
@@ -195,10 +198,16 @@ def congrat_winner(the_winner):
         print('\t\tSultan wins')
 
     elif the_winner == X:
-        print('\t\tCrusader wins')
+        print('\t\tKrzyżowiec tryumfuje! Chwała eurpejskiej cywilizacji'  
+        '\t\troztacza się nad spalonymi poiaskami pustyni. Sułtan gryuzie piach.')
 
     else:
-        print('\t\tzremisowałeś')
+        print('\t\tI wszystko to jak krew w piach! Dosłownie. Krzyżowiec' 
+        '\t\t\nzagazowany toksycznymi oparami fajki wodnej padł twarzą w wydmę' 
+        '\t\t\nstając się tym samym pokarmem dla okolicznych grzechotników.' 
+        '\t\t\nA sam Sułtan jakkolwiek przebiegły, to teraz z nabiegłymi krwią' 
+        '\t\t\noczyma, przeszedł kilka metrów do swojego wielbłąda zostawiając' 
+        '\t\t\nza sobą karmazynową ścieżkę hańby. Padł na wznak - zakrzyżowany na śmierć.')
 
 
 def main():
@@ -217,7 +226,6 @@ def main():
     show_grid(grid)
 
 # PLAY GAME
-    # the_winner = winner(grid)
     while not winner(grid):
         if turn == X:
             move = player_moves(grid)
