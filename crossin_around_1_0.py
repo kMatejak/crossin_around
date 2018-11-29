@@ -1,3 +1,5 @@
+#import launchpad
+
 # GLOBAL VALUES
 X = '+'
 O = 'o'
@@ -195,19 +197,20 @@ def next_turn(turn):
 
 def congrat_winner(the_winner):
     if the_winner == O:
-        print('\t\tSultan wins')
+        print('\t\tPrzebiegły Sułtan docisnął parszywego Krzyżowca w piach.'
+	'\t\nNastępnie rzucił truchło biedaka swoim niebywale wyrośniętym skorpionom. Radości nie było końca!\n')
 
     elif the_winner == X:
-        print('\t\tKrzyżowiec tryumfuje! Chwała eurpejskiej cywilizacji'  
-        '\t\troztacza się nad spalonymi poiaskami pustyni. Sułtan gryuzie piach.')
+        print('\tKrzyżowiec tryumfuje! Chwała eurpejskiej cywilizacji'  
+        '\troztacza się nad spalonymi poiaskami pustyni. Sułtan gryzie piach.\n')
 
     else:
-        print('\t\tI wszystko to jak krew w piach! Dosłownie. Krzyżowiec' 
-        '\t\t\nzagazowany toksycznymi oparami fajki wodnej padł twarzą w wydmę' 
-        '\t\t\nstając się tym samym pokarmem dla okolicznych grzechotników.' 
-        '\t\t\nA sam Sułtan jakkolwiek przebiegły, to teraz z nabiegłymi krwią' 
-        '\t\t\noczyma, przeszedł kilka metrów do swojego wielbłąda zostawiając' 
-        '\t\t\nza sobą karmazynową ścieżkę hańby. Padł na wznak - zakrzyżowany na śmierć.')
+        print('\tI wszystko to jak krew w piach! Dosłownie. Krzyżowiec' 
+        '\t\nzagazowany toksycznymi oparami fajki wodnej padł twarzą w wydmę' 
+        '\t\nstając się tym samym pokarmem dla okolicznych grzechotników.' 
+        '\t\nA sam Sułtan jakkolwiek przebiegły, to teraz z nabiegłymi krwią' 
+        '\t\noczyma, przeszedł kilka metrów do swojego wielbłąda zostawiając' 
+        '\t\nza sobą karmazynową ścieżkę hańby. Padł na wznak - zakrzyżowany na śmierć.\n')
 
 
 def main():
