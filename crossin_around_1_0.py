@@ -110,9 +110,7 @@ def start_game():
 
 def new_grid():
     """Create new game board"""
-    grid = []
-    for grid_size in range(GRID_SIZE):
-        grid.append(EMPTY)
+    grid = [EMPTY for grid_size in range(GRID_SIZE)]
     return grid 
 
 
@@ -247,4 +245,5 @@ def main():
 
 
 # PROGRAM EXECUTE
-main()
+if __name__ = '__main__':
+    main()
