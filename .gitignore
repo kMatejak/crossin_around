@@ -105,3 +105,7 @@ venv_python3
 
 # mypy
 .mypy_cache/
+
+# temporary files
+Tictactoe
+launchpad_test.py
