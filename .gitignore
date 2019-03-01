@@ -89,6 +89,9 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+crossin_env
+.vscode
+venv_python3
 
 # Spyder project settings
 .spyderproject

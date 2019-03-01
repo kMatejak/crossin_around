@@ -1,4 +1,6 @@
+import time 
 import rtmidi
+
 
 def midi_acces():
     mo = rtmidi.MidiOut()
