@@ -9,6 +9,9 @@ def reset_board():
 
 
 def get_grid_coordinates():
+    '''
+    :return: list
+    '''
     grid_coordinates = [c for c in range(2, 115, 16)]
     for c in range(5, 118, 16):
         grid_coordinates.append(c)
@@ -31,17 +34,11 @@ def show_grid(color=35, loc=0, hex=0x90):
     light_on_the_grid = connection.midi_acces().send_message
     grid = get_grid_coordinates()
     
-    for coordinate in range(2, 115, 16) and \ 
-        for loc in range(5, 118, 16) and
-    for loc in range(32, 40) and
-    for loc in range(80, 88): 
+    for loc in grid:
         light_on_the_grid([hex, loc, color])
-
-    return light_up_grid
 
 
 def get_position(number):
-
     positions = {
         '1': '96',
         '2': '99',
@@ -51,8 +48,8 @@ def get_position(number):
         '6': '54',
         '7': '0',
         '8': '3',
-        '9': '6',}
-    
+        '9': '6',
+        }
     return int(positions.get(number))
 
 
