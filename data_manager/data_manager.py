@@ -62,7 +62,7 @@ def player_moves(turn, board):
         return board
 
 
-def next_turn(turn):
+def next_(turn):
     if turn == '+':
         turn = 'o'
     else:
@@ -70,5 +70,16 @@ def next_turn(turn):
     return turn
 
 
-def winner(board):
-    pass
+def check_winner(turn, board):
+    winner_board = [
+        ['1', '2', '3'],
+        ['4', '5', '6'],
+        ['7', '8', '9'],
+        ['1', '5', '9'],
+        ['3', '5', '7']
+    ]
+    for win in winner_board:
+        if win in board:
+            return turn
+
+    return False
