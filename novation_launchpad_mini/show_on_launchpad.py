@@ -1,6 +1,6 @@
 import time 
 
-import launchpad_connection as connection
+from novation_launchpad_mini import launchpad_connection as connection
 
 
 def reset_board():
@@ -23,7 +23,7 @@ def get_grid_coordinates():
     return grid_coordinates
 
 
-def show_grid(color=35, loc=0, hex=0x90):
+def grid(color=35, loc=0, hex=0x90):
     '''
     color
     3  is RED R3
@@ -38,7 +38,7 @@ def show_grid(color=35, loc=0, hex=0x90):
         light_on_the_grid([hex, loc, color])
 
 
-def get_position(number):
+def get_position(loc):
     positions = {
         '1': '96',
         '2': '99',
@@ -50,7 +50,7 @@ def get_position(number):
         '8': '3',
         '9': '6',
         }
-    return int(positions.get(number))
+    return int(positions.get(loc))
 
 
 def display_box(hex, loc, color):
