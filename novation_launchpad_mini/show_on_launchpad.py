@@ -1,41 +1,48 @@
 import time 
-import rtmidi
+
+import launchpad_connection as connection
 
 
-def midi_acces():
-    mo = rtmidi.MidiOut()
-    for port_no in range(mo.get_port_count()):
-            port_name = mo.get_port_name(port_no)
-            print("MIDI out:", port_name)
-            if port_name.find('Launchpad Mini') > -1:
-                midi_port = mo.open_port(port_no)
-    return midi_port
-
-# midi_acces().send_message([0xB0, 00, 00]) #reset
+def reset_board():
+    reset = connection.midi_acces().send_message([0xB0, 00, 00])
+    return reset
 
 
-def display_grid(hex, key, color):
-    light_grid = midi_acces().send_message
-    for key in range(2, 115, 16):
-        light_grid([hex, key, color])
-    for key in range(5, 118, 16):
-        light_grid([hex, key, color])
-    for key in range(32, 40):
-        light_grid([hex, key, color])
-    for key in range(80, 88):
-        light_grid([hex, key, color])
-    return light_grid
-
-display_grid(0x90, 0, 17)
+def get_grid_coordinates():
+    grid_coordinates = [c for c in range(2, 115, 16)]
+    for c in range(5, 118, 16):
+        grid_coordinates.append(c)
+    for c in range(32, 40):
+        grid_coordinates.append(c)
+    for c in range(80, 88):
+        grid_coordinates.append(c)
+    grid_coordinates.sort()
+    return grid_coordinates
 
 
-def ask_number():
-    response = input('input nr: ')
-    return response 
+def show_grid(color=35, loc=0, hex=0x90):
+    '''
+    color
+    3  is RED R3
+    50 is YELLOW Y3
+    48 is GREEN G3
+    35 is ORANGE O4
+    '''
+    light_on_the_grid = connection.midi_acces().send_message
+    grid = get_grid_coordinates()
+    
+    for coordinate in range(2, 115, 16) and \ 
+        for loc in range(5, 118, 16) and
+    for loc in range(32, 40) and
+    for loc in range(80, 88): 
+        light_on_the_grid([hex, loc, color])
+
+    return light_up_grid
 
 
-def get_loc(num):
-    pos_dict = {
+def get_position(number):
+
+    positions = {
         '1': '96',
         '2': '99',
         '3': '102',
@@ -45,31 +52,21 @@ def get_loc(num):
         '7': '0',
         '8': '3',
         '9': '6',}
-    loc = pos_dict.get(num)
-    return int(loc)
+    
+    return int(positions.get(number))
 
 
 def display_box(hex, loc, color):
-    light_box = midi_acces().send_message
+
+    light_box = connection.midi_acces().send_message
+
     loc1 = loc + 1
     loc2 = loc + 16
     loc3 = loc + 17
+
     light_box([hex, loc, color])
     light_box([hex, loc1, color])
     light_box([hex, loc2, color])
     light_box([hex, loc3, color])
 
     return light_box
-
-# display_box(0x90, 0, 11)
-# display_box(0x90, 51, 48)
-
-
-response = ask_number()
-print(response)
-loc = get_loc(response)
-print(loc)
-color = 11
-display_box(0x90, loc, color)
-#display_box(0x90, 0, 11)
-#display_box(0x90, 51, 48)
