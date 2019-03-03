@@ -1,6 +1,6 @@
 from data_manager import data_manager as data
 from display_in_console import show
-from novation_launchpad_mini import show_on_launchpad as light
+# from novation_launchpad_mini import show_on_launchpad as light
 
 RED = 3
 GREEN = 48
@@ -9,31 +9,35 @@ EMPTY = ' '
 
 def game():
 # INTRO
+    # light.reset_board()
     n = 'cxfdks728uj!!pierogi'
     while n == 'cxfdks728uj!!pierogi':
         n = show.instruction()
 
 # START GAME
     turn = '+'
-    # winner = 
     board = data.create_empty_board()
-
+    try:
+        data.ask_yes_no('Czy jesteś Krzyżowcem?')
+    except:
+        exit
     show.player_cheer()
     show.current(board)
+    winner = data.check_winner(turn, board)
 
 # PLAY GAME
-    while EMPTY in board:
+    while not winner:
         try:
             board = data.player_moves(turn, board)
         except:
-            pass   
+            pass
         show.current(board)
-        #winner = data.winner(turn)
-        turn = data.next_turn(turn)
+        winner = data.check_winner(turn, board)
+        turn = data.next_(turn)
 
 # END GAME
+    show.congrat(winner)
     print('END')
-    #show.congrat(winner)
 
 
 if __name__ == '__main__':
