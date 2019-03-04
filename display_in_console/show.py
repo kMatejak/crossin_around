@@ -36,7 +36,7 @@ def instruction():
         '\n\t\t\t       |       |   +   ',
         '\n\t\t\t       |       |       ')
     question = pl.show_instruction_3()
-    input(question)
+    return input(question)
 
 
 def board_template_with_numbers():

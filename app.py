@@ -10,8 +10,8 @@ EMPTY = ' '
 def game():
 # INTRO
     # light.reset_board()
-    n = 'cxfdks728uj!!pierogi'
-    while n == 'cxfdks728uj!!pierogi':
+    n = 'cxfdks728%@&*^^'
+    while n == 'cxfdks728%@&*^^':
         n = show.instruction()
 
 # START GAME
