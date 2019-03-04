@@ -1,7 +1,6 @@
 from display_in_console import show
 
 EMPTY = ' '
-TIE = 'TIE'
 
 
 def ask_yes_no(question):
