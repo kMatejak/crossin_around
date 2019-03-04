@@ -1,4 +1,5 @@
-from languages import polski
+from languages import polski as pl
+from languages import english as en
 
 
 def instruction():
@@ -12,57 +13,57 @@ def instruction():
      \____/_|  \___/|___/___/_|_| |_|   \_| |_/_|  \___/ \__,_|_| |_|\__,_|
                                                                        
     ''')
-    print('\tSułtan Kefiratu pomny o zniewagę jakiej doznał, wyzwał na poje-\n',
-        '\tdynek dzielnego Krzyżowca Ogórkomira. Wciel się w rolę waleczn-\n',
-        '\tego Krzyżowca lub bezwględnego Sułtana i wgnieć swojego przeci-\n',
-        '\twnika w piaski pustyni.\n\n',
-        '\tDostępna jest plansza składająca się z 9 pól, na których rozeg-\n',
-        '\tra się ta krwawa walka. Krzyżowiec krzyżuje (jakżeby inaczej),\n',
-        '\ta Sułtan puszcza toksyczne kółka z fajki wodnej. Ruch odbywa\n',
-        '\tsię na zmianę poprzez wskazanie numeru pustego pola.\n')
-    print('\tZwyciężysz, o ile zajmiesz trzy sąsiadujące ze sobą pola:\n',
-        '\tpoziomo, pionowo lub ukośnie.\n')
+    pl.show_instruction_1()
     print(
-        '\t\t\t       |       |       \n',
-        '\t\t\t   7   |   8   |   9   \n',
-        '\t\t\t_______|_______|_______\n',
-        '\t\t\t       |       |       \n',
-        '\t\t\t   4   |   5   |   6   \n',
-        '\t\t\t_______|_______|_______\n',
-        '\t\t\t       |       |       \n',
-        '\t\t\t   1   |   2   |   3   \n',
-        '\t\t\t       |       |       \n')
-    print('\tTwój przykładowy tryumf może wyglądać tak:\n')
+        '\n\t\t\t       |       |       ',
+        '\n\t\t\t   7   |   8   |   9   ',
+        '\n\t\t\t_______|_______|_______',
+        '\n\t\t\t       |       |       ',
+        '\n\t\t\t   4   |   5   |   6   ',
+        '\n\t\t\t_______|_______|_______',
+        '\n\t\t\t       |       |       ',
+        '\n\t\t\t   1   |   2   |   3   ',
+        '\n\t\t\t       |       |       ')
+    pl.show_instruction_2()
     print(
-        '\t\t\t       |       |       \n',
-        '\t\t\t   +   |       |   o   \n',
-        '\t\t\t_______|_______|_______\n',
-        '\t\t\t       |       |       \n',
-        '\t\t\t       |   +   |   o   \n',
-        '\t\t\t_______|_______|_______\n',
-        '\t\t\t       |       |       \n',
-        '\t\t\t       |       |   +   \n',
-        '\t\t\t       |       |       \n')
-    n = input('\tDociśnij dowolnego konia [klawiszem Enter], aby kontynuować...')
+        '\n\t\t\t       |       |       ',
+        '\n\t\t\t   +   |       |   o   ',
+        '\n\t\t\t_______|_______|_______',
+        '\n\t\t\t       |       |       ',
+        '\n\t\t\t       |   +   |   o   ',
+        '\n\t\t\t_______|_______|_______',
+        '\n\t\t\t       |       |       ',
+        '\n\t\t\t       |       |   +   ',
+        '\n\t\t\t       |       |       ')
+    question = pl.show_instruction_3()
+    input(question)
 
 
 def board_template_with_numbers():
     print(
-        '\t\t\t       |       |       \n',
-        '\t\t\t   7   |   8   |   9   \n',
-        '\t\t\t_______|_______|_______\n',
-        '\t\t\t       |       |       \n',
-        '\t\t\t   4   |   5   |   6   \n',
-        '\t\t\t_______|_______|_______\n',
-        '\t\t\t       |       |       \n',
-        '\t\t\t   1   |   2   |   3   \n',
-        '\t\t\t       |       |       \n')
+        '\n\t\t\t       |       |       ',
+        '\n\t\t\t   7   |   8   |   9   ',
+        '\n\t\t\t_______|_______|_______',
+        '\n\t\t\t       |       |       ',
+        '\n\t\t\t   4   |   5   |   6   ',
+        '\n\t\t\t_______|_______|_______',
+        '\n\t\t\t       |       |       ',
+        '\n\t\t\t   1   |   2   |   3   ',
+        '\n\t\t\t       |       |       ')
+
+
+def opening_question():
+    return pl.show_opening_question()
 
 
 def player_cheer():
     white_rows(30)
-    print('\t\tNAJEŻDŻAJ!!!')
+    pl.show_player_cheer()
     white_rows(3)
+
+
+def next_move_ask():
+    return pl.show_next_move_ask()
 
 
 def white_rows(how_many_rows):
@@ -71,52 +72,50 @@ def white_rows(how_many_rows):
 
 
 def current(board):
+    white_rows(50)
     board_template_with_numbers()
     print('''
         \t\t       |       |      
-        \t\t    {}  |   {}   |  {}  
-        \t\t_______|_______|_______  
-        \t\t       |       |         
-        \t\t    {}  |   {}   |   {}  
-        \t\t_______|_______|_______ 
-        \t\t       |       |         
-        \t\t    {}  |   {}   |   {}  
+        \t\t   {}   |   {}   |   {}
+        \t\t_______|_______|_______
+        \t\t       |       |       
+        \t\t   {}   |   {}   |   {}
+        \t\t_______|_______|_______
+        \t\t       |       |       
+        \t\t   {}   |   {}   |   {}
         \t\t       |       |        '''.format(board['7'], board['8'], board['9'], 
-                                                board['4'], board['5'], board['6'], 
-                                                board['1'], board['2'], board['3']))
+                                               board['4'], board['5'], board['6'], 
+                                               board['1'], board['2'], board['3']))
 
 
 def congrat(winner):
-    if 'o':
+    if winner == 'o':
         sultan_wins_ending()
-    elif '+':
+    elif winner == '+':
         crusader_wins_ending()
-    elif 'TIE':
+    elif winner == 'tie':
         tie_ending()
 
 
 def sultan_wins_ending():
-    print('\t\tPrzebiegły Sułtan docisnął parszywego Krzyżowca w piach. \
-        \t\nNastępnie rzucił truchło biedaka swoim niebywale wyrośniętym skorpionom. Radości nie było końca!\n')
+    return pl.show_sultan_wins_ending()
 
 
 def crusader_wins_ending():
-    print('\tKrzyżowiec tryumfuje! Chwała eurpejskiej cywilizacji \
-        \troztacza się nad spalonymi poiaskami pustyni. Sułtan gryzie piach.\n')
+    return pl.show_crusader_wins_ending()
 
 
 def tie_ending():
-    print('\tI wszystko to jak krew w piach! Dosłownie. Krzyżowiec \
-        \t\nzagazowany toksycznymi oparami fajki wodnej padł twarzą w wydmę \
-        \t\nstając się tym samym pokarmem dla okolicznych grzechotników. \
-        \t\nA sam Sułtan jakkolwiek przebiegły, to teraz z nabiegłymi krwią \
-        \t\noczyma, przeszedł kilka metrów do swojego wielbłąda zostawiając \
-        \t\nza sobą karmazynową ścieżkę hańby. Padł na wznak - zakrzyżowany na śmierć.\n')
+    return pl.show_tie_ending()
 
 
 def error_illegal_move(): 
-    print('To pole jest już oblegane. Spróbuj Waść ponownie.')
+    return pl.show_error_illegal_move()
 
 
 def error_not_valid_type():
-    print('Może za dużo gorzałki wczorajszego wieczora... \nPanie, proszę wprowadzić cyfrę w zakresie 1-9.')
+    return pl.show_error_not_valid_type()
+
+
+def not_crusader_error():
+    return pl.show_not_crusader_error()
