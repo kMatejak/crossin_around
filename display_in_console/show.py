@@ -2,6 +2,11 @@ from languages import polski as pl
 from languages import english as en
 
 
+def white_rows(how_many_rows):
+    rows = how_many_rows - 1
+    print('\n'*rows)
+
+
 def instruction():
     """show game instruction"""
     print('''
@@ -39,6 +44,8 @@ def instruction():
     return question
 
 
+# GAME
+
 def board_template_with_numbers():
     print(
         '\n\t\t\t       |       |       ',
@@ -66,12 +73,9 @@ def player_cheer():
 
 
 def next_move_ask():
-    return pl.show_next_move_ask()
-
-
-def white_rows(how_many_rows):
-    rows = how_many_rows - 1
-    print('\n'*rows)
+    show = pl.show_next_move_ask()
+    white_rows(50)
+    return show
 
 
 def current(board):
@@ -91,6 +95,8 @@ def current(board):
                                                board['1'], board['2'], board['3']))
 
 
+# ENDINGS
+
 def congrat(winner):
     if winner == 'o':
         sultan_wins_ending()
@@ -101,31 +107,39 @@ def congrat(winner):
 
 
 def sultan_wins_ending():
-    return pl.show_sultan_wins_ending()
+    white_rows(4)
+    pl.show_sultan_wins_ending()
+    white_rows(6)
 
 
 def crusader_wins_ending():
-    return pl.show_crusader_wins_ending()
+    white_rows(4)
+    pl.show_crusader_wins_ending()
+    white_rows(6)
 
 
 def tie_ending():
+    white_rows(4)
     pl.show_tie_ending()
+    white_rows(3)
 
 
 # ERRORS
 
 def error_illegal_move(): 
-    return pl.show_error_illegal_move()
+    pl.show_error_illegal_move()
 
 
 def error_not_valid_type():
-    return pl.show_error_not_valid_type()
+    pl.show_error_not_valid_type()
 
 
 def error_not_crusader():
     white_rows(50)
-    return pl.show_error_not_crusader()
+    pl.show_error_not_crusader()
+    white_rows(6)
 
 def error_to_many_inputs():
     white_rows(50)
-    return pl.error_to_many_inputs()
+    pl.error_to_many_inputs()
+    white_rows(6)
