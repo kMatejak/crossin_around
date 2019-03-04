@@ -11,14 +11,12 @@ def ask_yes_no():
     """
     answer = False
     counter = 0
-
-    show.white_rows(50)
     
     while answer not in ['t', 'y', 'tak', 'yes', 'maciej jest spoko']:
-        answer = show.opening_question().lower()
-        counter += 1
         if counter == 3:
             raise TypeError
+        answer = show.opening_question(counter).lower()
+        counter += 1
     
     return answer
 
@@ -43,24 +41,38 @@ def create_empty_board():
 
 def player_moves(turn, board):
     EMPTY = ' '
-    question = show.next_move_ask()
-    field = input(question)
+    limit = 0
 
-    if field == 'remis':
-        board = {'1':'o','2':'+','3':'o','4':'+','5':'o','6':'+','7':'+','8':'o','9':'+',}
-        return board
+    while limit <= 2:
+        shot = show.next_move_ask()
 
-    elif field not in ['1','2','3','4','5','6','7','8','9']:
-        show.error_not_valid_type()
-        raise TypeError
+        if limit == 2:
+            show.error_to_many_inputs()
+            exit()
+    
+        elif shot == 'TIE fighter':
+            board = {'1':'o','2':'+','3':'o','4':'+','5':'o','6':'+','7':'+','8':'o','9':'+'}
+            return board
 
-    elif board[field] != EMPTY:
-        show.error_illegal_move()
-        raise TypeError
+        elif shot == 'IMPEROR':
+            board = {'1':' ','2':'+','3':'o','4':' ','5':'+','6':' ','7':'o','8':'+','9':' '}
+            return board
 
-    else:
-        board[field] = turn
-        return board
+        elif shot == 'YODA':
+            board = {'1':' ','2':'+','3':'+','4':'+','5':'+','6':'o','7':'o','8':'o','9':'o'}
+            return board
+
+        elif shot not in ['1','2','3','4','5','6','7','8','9']:
+            show.error_not_valid_type()
+            limit += 1
+
+        elif board[shot] != EMPTY:
+            show.error_illegal_move()
+            limit += 1
+
+        else:
+            board[shot] = turn
+            return board
 
 
 def next_(turn):
