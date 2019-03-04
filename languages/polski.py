@@ -1,5 +1,5 @@
 def show_instruction_1():
-    show = print('\tSułtan Kefiratu pomny o zniewagę jakiej doznał, wyzwał na poje- \
+    print('\tSułtan Kefiratu pomny o zniewagę jakiej doznał, wyzwał na poje- \
         \n\tdynek dzielnego Krzyżowca Ogórkomira. Wciel się w rolę waleczn- \
         \n\tego Krzyżowca lub bezwględnego Sułtana i wgnieć swojego przeci-\
         \n\twnika w piaski pustyni.\
@@ -9,70 +9,75 @@ def show_instruction_1():
         \n\tsię na zmianę poprzez wskazanie numeru pustego pola. \
         \n\n\tZwyciężysz, o ile zajmiesz trzy sąsiadujące ze sobą pola:\
         \n\tpoziomo, pionowo lub ukośnie.')
-    return show
 
 
 def show_instruction_2():
-    show = print('\n\tTwój przykładowy tryumf może wyglądać tak:')
-    return show
+    print('\n\tTwój przykładowy tryumf może wyglądać tak:')
 
 
 def show_instruction_3():
-    show = input('\n\tDociśnij dowolnego konia [klawiszem Enter], aby kontynuować...')
-    return show
+    return input('\n\tDociśnij dowolnego konia [klawiszem Enter], aby kontynuować...')
+
+
+def show_opening_adnotation():
+    print('\tJako, że zaczyna Krzyżowiec, pytam:\n')
 
 
 def show_opening_question():
-    show = input('\tCzy jesteś Krzyżowcem? ')
-    return show
+    return input('\tCzy jesteś Krzyżowcem? ')
 
 
 def show_player_cheer():
-    show = print('\t\tNAJEŻDŻAJ!!!')
-    return show
+    print('\t\tNAJEŻDŻAJ!!!')
 
 
 def show_next_move_ask():
-    show = input('\n\tWskaż pole swojego najazdu: ')
-    return show
+    return input('\n\tWskaż pole swojego \n\tnajazdu: ')
 
+
+# ENDINGS
 
 def show_sultan_wins_ending():
-    show = print('\n\tPrzebiegły Sułtan docisnął parszywego Krzyżowca w piach. \
-        \n\tNastępnie rzucił truchło biedaka swoim niebywale wyrośniętym skorpionom. \
-        Radości nie było końca!\n')
-    return show
+    print('\n\tPrzebiegły Sułtan docisnął parszywego Krzyżowca w piach. Następnie \
+        \n\trzucił truchło biedaka swoim niebywale wyrośniętym skorpionom. \
+        \n\tRadości nie było końca! 69 dziewic zatańczyło kankana.\n')
 
 
 def show_crusader_wins_ending():
-    show = print('\n\tKrzyżowiec tryumfuje! Chwała eurpejskiej cywilizacji \
-        \n\troztacza się nad spalonymi poiaskami pustyni. Sułtan gryzie piach.\n')
-    return show
+    print('\n\tKrzyżowiec tryumfuje! Chwała eurpejskiej cywilizacji \
+        \n\troztacza się nad spalonymi piaskami pustyni. Sułtan gryzie piach.\n')
 
 
 def show_tie_ending():
-    show = print('\n\tI wszystko to jak krew w piach! Dosłownie. Krzyżowiec \
+    print('\n\tI wszystko to jak krew w piach! Dosłownie. Krzyżowiec \
         \n\tzagazowany toksycznymi oparami fajki wodnej padł twarzą w wydmę \
         \n\tstając się tym samym pokarmem dla okolicznych grzechotników. \
-        \n\tA sam Sułtan jakkolwiek przebiegły, to teraz z nabiegłymi krwią \
+        \n\n\tA sam Sułtan jakkolwiek przebiegły, to teraz z nabiegłymi krwią \
         \n\toczyma, przeszedł kilka metrów do swojego wielbłąda zostawiając \
         \n\tza sobą karmazynową ścieżkę hańby. Padł na wznak - zakrzyżowany \
         \n\tna śmierć.\n')
-    return show
 
+
+# ERRORS
 
 def show_error_illegal_move():
-    show = print('\n\tTo pole jest już oblegane. Spróbuj Waść ponownie.\n')
-    return show
+    print('\n\tTo pole jest już oblegane. Spróbuj Waść ponownie.\n')
 
 
 def show_error_not_valid_type():
-    show = print('\n\tMoże za dużo gorzałki wczorajszego wieczora... \
-        \nPanie, proszę wprowadzić cyfrę w zakresie 1-9.\n')
-    return show
+    print('\n\tMoże za dużo gorzałki wczorajszego wieczora... \
+        \n\tPanie, proszę wprowadzić cyfrę w zakresie 1-9.\n')
 
 
-def show_not_crusader_error():
-    show = print('\n\tMoże Krzyżowiec padł zanim stanął... do walki. \
-        \n\tTrudno, rozgrywka sie nie odbędzie.\n')
-    return show
+def show_error_not_crusader():
+    print('\n\tMoże Krzyżowiec padł zanim stanął... do walki. \
+        \n\tJako, że do tanga potrzeba dwojga (lub dwóch), \
+        \n\tpotyczka nie odbędzie się. No, przykro mi.\n')
+
+
+def error_to_many_inputs():
+    print('\n\tI co? Mam tak powtarzać w koło Macieju do usranej... \
+        \n\tNie, do czorta, kończymy zabawę! Tylko czekaj! \
+        \n\n\tNa pustynię spadła właśnie okrutnie wielka kometa, \
+        \n\ti nie ostał się żywy choćby jeden obesrany giermek.\
+        \n\n\tZADOWOLONY!?\n')
