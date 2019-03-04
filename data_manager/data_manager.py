@@ -1,7 +1,5 @@
 from display_in_console import show
 
-EMPTY = ' '
-
 
 def ask_yes_no(question):
     """
@@ -49,6 +47,7 @@ def create_empty_board():
 
 
 def player_moves(turn, board):
+    EMPTY = ' '
     move = input('Wskaż pole swojego najazdu: ')
     if move not in ['1','2','3','4','5','6','7','8','9']:
         show.error_not_valid_type()
@@ -69,16 +68,29 @@ def next_(turn):
     return turn
 
 
-def check_winner(turn, board):
+def check_winner(symbol, board):
+    '''
+    takes symbol (string) and actual board (dict)
+    :returns: string or False 
+    '''
+    EMPTY = ' '
     winner_board = [
         ['1', '2', '3'],
         ['4', '5', '6'],
         ['7', '8', '9'],
+        ['1', '4', '7'],
+        ['2', '5', '8'],
+        ['3', '6', '9'],
         ['1', '5', '9'],
         ['3', '5', '7']
     ]
-    for win in winner_board:
-        if win in board:
-            return turn
-
+    for win_row in winner_board:
+        check = 0
+        for el in win_row:
+            if board[el] == symbol:
+                check += 1
+    
+    if EMPTY not in board.values():
+        return 'tie'
+    
     return False

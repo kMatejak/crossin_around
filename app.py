@@ -23,20 +23,20 @@ def game():
         exit
     show.player_cheer()
     show.current(board)
-    winner = data.check_winner(turn, board)
+    check_winner = data.check_winner(turn, board)
 
 # PLAY GAME
-    while not winner:
+    while not check_winner:
         try:
             board = data.player_moves(turn, board)
         except:
             pass
         show.current(board)
-        winner = data.check_winner(turn, board)
+        check_winner = data.check_winner(turn, board)
         turn = data.next_(turn)
 
 # END GAME
-    show.congrat(winner)
+    show.congrat(check_winner)
     print('END')
 
 
