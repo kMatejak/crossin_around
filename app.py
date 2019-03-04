@@ -1,14 +1,11 @@
 from data_manager import data_manager as data
 from display_in_console import show
-# from novation_launchpad_mini import show_on_launchpad as light
-
-RED = 3
-GREEN = 48
+from novation_launchpad_mini import show_on_launchpad as light
 
 
 def game():
 # INTRO
-    # light.reset_board()
+    light.reset_board()
     n = 'cxfdks728%@&*^^'
     while n == 'cxfdks728%@&*^^':
         n = show.instruction()
@@ -27,8 +24,12 @@ def game():
 
 # PLAY GAME
     while not winner:
+        light.grid()
         show.current(board)
-        board = data.player_moves(turn, board)
+        move = data.player_moves(turn, board)
+        board = move[0]
+        shots = move[1]
+        light.box(shots, turn)
         winner = data.check_winner(turn, board)
         turn = data.next_(turn)
 
