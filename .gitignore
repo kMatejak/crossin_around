@@ -109,3 +109,6 @@ venv_python3
 # temporary files
 Tictactoe
 launchpad_test.py
+
+# test data
+data_manager/test_data.py
