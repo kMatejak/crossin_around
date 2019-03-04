@@ -36,7 +36,7 @@ def instruction():
         '\n\t\t\t       |       |   +   ',
         '\n\t\t\t       |       |       ')
     question = pl.show_instruction_3()
-    return input(question)
+    return question
 
 
 def board_template_with_numbers():
@@ -53,7 +53,8 @@ def board_template_with_numbers():
 
 
 def opening_question():
-    return pl.show_opening_question()
+    show = pl.show_opening_question()
+    return show
 
 
 def player_cheer():
@@ -63,7 +64,8 @@ def player_cheer():
 
 
 def next_move_ask():
-    return pl.show_next_move_ask()
+    show = pl.show_next_move_ask()
+    return show
 
 
 def white_rows(how_many_rows):
