@@ -15,38 +15,27 @@ def game():
         n = show.instruction()
 
 # START GAME
+    try:
+        data.ask_yes_no()
+    except:
+        show.not_crusader_error()
+        exit()
+    
     turn = '+'
     board = data.create_empty_board()
-    try:
-        data.ask_yes_no('Czy jesteś Krzyżowcem?')
-    except:
-        exit
     show.player_cheer()
-    show.current(board)
-    check_winner = data.check_winner(turn, board)
+    winner = data.check_winner(turn, board)
 
 # PLAY GAME
-    while not check_winner:
-        try:
-            board = data.player_moves(turn, board)
-        except:
-            pass
+    while not winner:
         show.current(board)
-        check_winner = data.check_winner(turn, board)
+        board = data.player_moves(turn, board)
+        winner = data.check_winner(turn, board)
         turn = data.next_(turn)
 
 # END GAME
-    show.congrat(check_winner)
-    print('END')
+    show.congrat(winner)
 
 
 if __name__ == '__main__':
     game()
-
-
-
-
-# daj postawic znak sprawdzjac czy pole wolne
-# zmien znak na inny i daj postawic w wolnym polu
-# sprawdzaj caly czas czy ktos wygral
-# wyswietl gratulacja dla zwuciezcy lub oglos remis
