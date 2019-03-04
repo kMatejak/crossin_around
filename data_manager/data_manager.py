@@ -11,30 +11,15 @@ def ask_yes_no():
     """
     answer = False
     counter = 0
-    question = show.opening_question()
 
     show.white_rows(50)
     
-    while answer not in ['t', 'y', 'maciej jest spoko']:
-        answer = input(question).lower()
+    while answer not in ['t', 'y', 'tak', 'yes', 'maciej jest spoko']:
+        answer = show.opening_question().lower()
         counter += 1
         if counter == 3:
             raise TypeError
     
-    return answer
-
-
-def ask_number(question):
-    """
-    Ask about the number of the selected field
-    """
-    answer = False
-    counter = 0
-
-    while answer not in range(1, 10) and counter < 4:
-        answer = int(input(question))
-        counter += 1
-
     return answer
 
 
