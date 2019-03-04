@@ -4,7 +4,6 @@ from display_in_console import show
 
 RED = 3
 GREEN = 48
-EMPTY = ' '
 
 
 def game():
