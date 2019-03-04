@@ -52,15 +52,18 @@ def player_moves(turn, board):
     
         elif shot == 'TIE fighter':
             board = {'1':'o','2':'+','3':'o','4':'+','5':'o','6':'+','7':'+','8':'o','9':'+'}
-            return board
+            move = [board, ['tie']]
+            return move
 
-        elif shot == 'IMPEROR':
-            board = {'1':' ','2':'+','3':'o','4':' ','5':'+','6':' ','7':'o','8':'+','9':' '}
-            return board
+        elif shot == 'EMPEROR':
+            board = {'1':' ','2':'+','3':' ','4':' ','5':'+','6':' ','7':' ','8':'+','9':' '}
+            move = [board, ['2','5','8']]
+            return move
 
         elif shot == 'YODA':
-            board = {'1':' ','2':'+','3':'+','4':'+','5':'+','6':'o','7':'o','8':'o','9':'o'}
-            return board
+            board = {'1':'o','2':' ','3':' ','4':' ','5':'o','6':' ','7':' ','8':' ','9':'o'}
+            move = [board, ['1','5','9']]
+            return move
 
         elif shot not in ['1','2','3','4','5','6','7','8','9']:
             show.error_not_valid_type()
@@ -72,7 +75,8 @@ def player_moves(turn, board):
 
         else:
             board[shot] = turn
-            return board
+            move = [board, shot]
+            return move
 
 
 def next_(turn):
