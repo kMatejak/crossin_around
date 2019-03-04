@@ -52,9 +52,11 @@ def board_template_with_numbers():
         '\n\t\t\t       |       |       ')
 
 
-def opening_question():
-    show = pl.show_opening_question()
-    return show
+def opening_question(counter):
+    white_rows(50)
+    if counter == 0:
+        pl.show_opening_adnotation()
+    return pl.show_opening_question()
 
 
 def player_cheer():
@@ -64,8 +66,7 @@ def player_cheer():
 
 
 def next_move_ask():
-    show = pl.show_next_move_ask()
-    return show
+    return pl.show_next_move_ask()
 
 
 def white_rows(how_many_rows):
@@ -108,8 +109,10 @@ def crusader_wins_ending():
 
 
 def tie_ending():
-    return pl.show_tie_ending()
+    pl.show_tie_ending()
 
+
+# ERRORS
 
 def error_illegal_move(): 
     return pl.show_error_illegal_move()
@@ -119,5 +122,10 @@ def error_not_valid_type():
     return pl.show_error_not_valid_type()
 
 
-def not_crusader_error():
-    return pl.show_not_crusader_error()
+def error_not_crusader():
+    white_rows(50)
+    return pl.show_error_not_crusader()
+
+def error_to_many_inputs():
+    white_rows(50)
+    return pl.error_to_many_inputs()
