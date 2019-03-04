@@ -17,7 +17,7 @@ def game():
     try:
         data.ask_yes_no()
     except:
-        show.not_crusader_error()
+        show.error_not_crusader()
         exit()
     
     turn = '+'
@@ -33,6 +33,7 @@ def game():
         turn = data.next_(turn)
 
 # END GAME
+    show.current(board)
     show.congrat(winner)
 
 
