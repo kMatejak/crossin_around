@@ -18,12 +18,12 @@ def show_instruction_2():
 
 
 def show_instruction_3():
-    show = print('\tDociśnij dowolnego konia [klawiszem Enter], aby kontynuować...')
+    show = input('\n\tDociśnij dowolnego konia [klawiszem Enter], aby kontynuować...')
     return show
 
 
 def show_opening_question():
-    show = print('\tCzy jesteś Krzyżowcem? ')
+    show = input('\tCzy jesteś Krzyżowcem? ')
     return show
 
 
@@ -33,7 +33,7 @@ def show_player_cheer():
 
 
 def show_next_move_ask():
-    show = print('\n\tWskaż pole swojego najazdu: ')
+    show = input('\n\tWskaż pole swojego najazdu: ')
     return show
 
 
@@ -74,5 +74,5 @@ def show_error_not_valid_type():
 
 def show_not_crusader_error():
     show = print('\n\tMoże Krzyżowiec padł zanim stanął... do walki. \
-        \nTrudno, rozgrywka sie nie odbędzie.\n')
+        \n\tTrudno, rozgrywka sie nie odbędzie.\n')
     return show
