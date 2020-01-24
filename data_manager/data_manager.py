@@ -24,7 +24,7 @@ def ask_yes_no():
 def create_empty_board() -> dict:
     new_board = dict()
     for n in range(1, 10):
-        new_board.update({n: " "})
+        new_board.update({str(n): " "})
     return new_board 
 
 
@@ -40,21 +40,23 @@ def player_moves(turn, board):
             exit()
     
         elif shot == 'TIE fighter':
-            board = {'1':'o','2':'+','3':'o','4':'+','5':'o','6':'+','7':'+','8':'o','9':'+'}
+            board = {'1': 'o', '2': '+', '3': 'o', '4': '+', '5': 'o', '6': '+', '7': '+', '8': 'o', '9': '+'}
             move = [board, ['tie']]
-            return move
+            return move, turn
 
         elif shot == 'EMPEROR':
-            board = {'1':' ','2':'+','3':' ','4':' ','5':'+','6':' ','7':' ','8':'+','9':' '}
-            move = [board, ['2','5','8']]
-            return move
+            board = {'1': ' ', '2': '+', '3': ' ', '4': ' ', '5': '+', '6': ' ', '7': ' ', '8': '+', '9': ' '}
+            move = [board, ['2', '5', '8']]
+            turn = "+"
+            return move, turn
 
         elif shot == 'YODA':
-            board = {'1':'o','2':' ','3':' ','4':' ','5':'o','6':' ','7':' ','8':' ','9':'o'}
-            move = [board, ['1','5','9']]
-            return move
+            board = {'1': 'o', '2': ' ', '3': ' ', '4': ' ', '5': 'o', '6': ' ', '7': ' ', '8': ' ', '9': 'o'}
+            move = [board, ['1', '5', '9']]
+            turn = "o"
+            return move, turn
 
-        elif shot not in ['1','2','3','4','5','6','7','8','9']:
+        elif shot not in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
             show.error_not_valid_type()
             limit += 1
 
@@ -65,7 +67,7 @@ def player_moves(turn, board):
         else:
             board[shot] = turn
             move = [board, shot]
-            return move
+            return move, turn
 
 
 def next_(turn):
@@ -77,10 +79,10 @@ def next_(turn):
 
 
 def check_winner(symbol, board):
-    '''
+    """
     takes symbol (string) and actual board (dict)
-    :returns: string or False 
-    '''
+    :returns: string or False
+    """
     empty = ' '
     winner_board = [
         ['1', '2', '3'],

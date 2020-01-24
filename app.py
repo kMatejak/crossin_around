@@ -26,7 +26,7 @@ def game():
     while not winner:
         light.grid()
         show.current(board)
-        move = data.player_moves(turn, board)
+        move, turn = data.player_moves(turn, board)
         board = move[0]
         shots = move[1]
         light.box(shots, turn)
