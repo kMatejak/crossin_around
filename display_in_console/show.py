@@ -96,7 +96,7 @@ def current(board):
 
 # ENDINGS
 
-def congrat(winner):
+def congratulation(winner):
     if winner == 'o':
         sultan_wins_ending()
     elif winner == '+':
@@ -134,11 +134,12 @@ def error_not_valid_type():
 
 
 def error_not_crusader():
-    white_rows(50)
+    white_rows(70)
     pl.show_error_not_crusader()
     white_rows(6)
 
+
 def error_to_many_inputs():
-    white_rows(50)
+    white_rows(70)
     pl.error_to_many_inputs()
     white_rows(6)

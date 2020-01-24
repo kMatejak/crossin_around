@@ -35,7 +35,7 @@ def game():
 
     # END GAME
     show.current(board)
-    show.congrat(winner)
+    show.congratulation(winner)
 
 
 if __name__ == '__main__':
