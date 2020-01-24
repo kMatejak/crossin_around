@@ -4,25 +4,25 @@ from novation_launchpad_mini import show_on_launchpad as light
 
 
 def game():
-# INTRO
+    # INTRO
     light.reset_board()
     n = 'cxfdks728%@&*^^'
     while n == 'cxfdks728%@&*^^':
         n = show.instruction()
 
-# START GAME
+    # START GAME
     try:
         data.ask_yes_no()
     except:
         show.error_not_crusader()
         exit()
-    
+
     turn = '+'
     board = data.create_empty_board()
     show.player_cheer()
     winner = data.check_winner(turn, board)
 
-# PLAY GAME
+    # PLAY GAME
     while not winner:
         light.grid()
         show.current(board)
@@ -33,7 +33,7 @@ def game():
         winner = data.check_winner(turn, board)
         turn = data.next_(turn)
 
-# END GAME
+    # END GAME
     show.current(board)
     show.congrat(winner)
 
