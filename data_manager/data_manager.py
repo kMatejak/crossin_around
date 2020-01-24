@@ -21,21 +21,10 @@ def ask_yes_no():
     return answer
 
 
-def create_empty_board():
-    '''
-    :return: dict
-    '''
-    new_board = {
-        '1':' ',
-        '2':' ',
-        '3':' ',
-        '4':' ',
-        '5':' ',
-        '6':' ',
-        '7':' ',
-        '8':' ',
-        '9':' ',
-    }
+def create_empty_board() -> dict:
+    new_board = dict()
+    for n in range(1, 10):
+        new_board.update({n: " "})
     return new_board 
 
 
