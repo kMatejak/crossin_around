@@ -2,7 +2,7 @@ from languages import polski as pl
 from languages import english as en
 
 
-def white_rows(rows):
+def print_white_rows(rows):
     print("\n" * (rows - 1))
 
 
@@ -59,26 +59,26 @@ def board_template_with_numbers():
 
 
 def opening_question(counter):
-    white_rows(70)
+    print_white_rows(70)
     if counter == 0:
         pl.show_opening_adnotation()
     return pl.show_opening_question()
 
 
 def player_cheer():
-    white_rows(30)
+    print_white_rows(30)
     pl.show_player_cheer()
-    white_rows(3)
+    print_white_rows(3)
 
 
 def next_move_ask():
     show = pl.show_next_move_ask()
-    white_rows(70)
+    print_white_rows(70)
     return show
 
 
 def current(board):
-    white_rows(50)
+    print_white_rows(50)
     board_template_with_numbers()
     print('''
         \t\t       |       |      
@@ -106,21 +106,21 @@ def congratulation(winner):
 
 
 def sultan_wins_ending():
-    white_rows(4)
+    print_white_rows(4)
     pl.show_sultan_wins_ending()
-    white_rows(6)
+    print_white_rows(3)
 
 
 def crusader_wins_ending():
-    white_rows(4)
+    print_white_rows(4)
     pl.show_crusader_wins_ending()
-    white_rows(6)
+    print_white_rows(3)
 
 
 def tie_ending():
-    white_rows(4)
+    print_white_rows(4)
     pl.show_tie_ending()
-    white_rows(3)
+    print_white_rows(3)
 
 
 # ERRORS
@@ -134,12 +134,12 @@ def error_not_valid_type():
 
 
 def error_not_crusader():
-    white_rows(70)
+    print_white_rows(70)
     pl.show_error_not_crusader()
-    white_rows(6)
+    print_white_rows(3)
 
 
 def error_to_many_inputs():
-    white_rows(70)
+    print_white_rows(70)
     pl.error_to_many_inputs()
-    white_rows(6)
+    print_white_rows(3)
