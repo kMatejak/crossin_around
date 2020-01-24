@@ -29,7 +29,7 @@ def create_empty_board() -> dict:
 
 
 def player_moves(turn, board):
-    EMPTY = ' '
+    empty = ' '
     limit = 0
 
     while limit <= 2:
@@ -58,7 +58,7 @@ def player_moves(turn, board):
             show.error_not_valid_type()
             limit += 1
 
-        elif board[shot] != EMPTY:
+        elif board[shot] != empty:
             show.error_illegal_move()
             limit += 1
 
@@ -81,7 +81,7 @@ def check_winner(symbol, board):
     takes symbol (string) and actual board (dict)
     :returns: string or False 
     '''
-    EMPTY = ' '
+    empty = ' '
     winner_board = [
         ['1', '2', '3'],
         ['4', '5', '6'],
@@ -100,7 +100,7 @@ def check_winner(symbol, board):
                 if check == 3:
                     return symbol
     
-    if EMPTY not in board.values():
+    if empty not in board.values():
         return 'tie'
     
     return False
