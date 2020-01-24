@@ -2,9 +2,8 @@ from languages import polski as pl
 from languages import english as en
 
 
-def white_rows(how_many_rows):
-    rows = how_many_rows - 1
-    print('\n'*rows)
+def white_rows(rows):
+    print("\n" * (rows - 1))
 
 
 def instruction():
@@ -60,7 +59,7 @@ def board_template_with_numbers():
 
 
 def opening_question(counter):
-    white_rows(50)
+    white_rows(70)
     if counter == 0:
         pl.show_opening_adnotation()
     return pl.show_opening_question()
@@ -74,7 +73,7 @@ def player_cheer():
 
 def next_move_ask():
     show = pl.show_next_move_ask()
-    white_rows(50)
+    white_rows(70)
     return show
 
 
