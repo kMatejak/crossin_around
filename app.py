@@ -13,7 +13,7 @@ def game():
     # START GAME
     try:
         data.ask_yes_no()
-    except:
+    except TypeError:
         show.error_not_crusader()
         exit()
 
