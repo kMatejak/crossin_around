@@ -78,6 +78,6 @@ def show_error_not_crusader():
 def error_to_many_inputs():
     print('\n\tI co? Mam tak powtarzać w koło Macieju do usranej... \
         \n\tNie, do czorta, kończymy zabawę! Tylko czekaj! \
-        \n\n\tNa pustynię spadła właśnie okrutnie wielka kometa, \
-        \n\ti nie ostał się żywy choćby jeden obesrany giermek.\
+        \n\n\tNa pustynię właśnie spadła okrutnie wielka kometa, \
+        \n\ti nie ostał się choćby jeden żywy, obesrany pachoł.\
         \n\n\tZADOWOLONY!?\n')
