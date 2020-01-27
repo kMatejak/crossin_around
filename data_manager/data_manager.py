@@ -1,8 +1,27 @@
+import os
+
 from display_in_console import show
 
 
+def get_available_langs_from_filenames():
+    langs = dict()
+    i = 1
+    for f_name in os.listdir("./languages/"):
+        if f_name.endswith(".py"):
+            langs.update({str(i): f_name[:-3]})
+            i += 1
+    return langs
+
+
 def ask_language_version():
-    pass
+    langs = get_available_langs_from_filenames()
+    show.print_available_languages(langs)
+    inp = input("Choose your language by type a number:\n")
+    if inp not in langs.keys():
+        print("Wrong input.")
+        print()
+        exit()
+    return langs[inp]
 
 
 def ask_yes_no():

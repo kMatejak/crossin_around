@@ -1,13 +1,30 @@
-from languages import polski as pl
-from languages import english as en
+from languages import english, polski
+
+
+language = str()
 
 
 def print_white_rows(rows):
     print("\n" * (rows - 1))
 
 
+def print_available_languages(lang_files_names):
+    print()
+    for order, name in lang_files_names.items():
+        print(f"  {order}. " + name)
+    print()
+
+
+def set_language_version():
+    if language == "english":
+        return english
+    else:
+        return polski
+
+
 def instruction():
     """show game instruction"""
+    lang = set_language_version()
     print('''
      _____                   _       _    ___                            _ 
     /  __ \                 (_)     ( )  / _ \                          | |
@@ -17,7 +34,7 @@ def instruction():
      \____/_|  \___/|___/___/_|_| |_|   \_| |_/_|  \___/ \__,_|_| |_|\__,_|
                                                                        
     ''')
-    pl.show_instruction_1()
+    lang.show_instruction_1()
     print(
         '\n\t\t\t       |       |       ',
         '\n\t\t\t   7   |   8   |   9   ',
@@ -28,7 +45,7 @@ def instruction():
         '\n\t\t\t       |       |       ',
         '\n\t\t\t   1   |   2   |   3   ',
         '\n\t\t\t       |       |       ')
-    pl.show_instruction_2()
+    lang.show_instruction_2()
     print(
         '\n\t\t\t       |       |       ',
         '\n\t\t\t   +   |       |   o   ',
@@ -39,7 +56,7 @@ def instruction():
         '\n\t\t\t       |       |       ',
         '\n\t\t\t       |       |   +   ',
         '\n\t\t\t       |       |       ')
-    question = pl.show_instruction_3()
+    question = lang.show_instruction_3()
     return question
 
 
@@ -59,26 +76,32 @@ def board_template_with_numbers():
 
 
 def opening_question(counter):
+    lang = set_language_version()
     print_white_rows(70)
     if counter == 0:
-        pl.show_opening_adnotation()
-    return pl.show_opening_question()
+        lang.show_opening_adnotation()
+    return lang.show_opening_question()
 
 
 def player_cheer():
-    print_white_rows(30)
-    pl.show_player_cheer()
+    lang = set_language_version()
+    print_white_rows(50)
+    lang.show_player_cheer()
     print_white_rows(3)
 
 
 def next_move_ask():
-    show = pl.show_next_move_ask()
+    lang = set_language_version()
+    show = lang.show_next_move_ask()
     print_white_rows(70)
     return show
 
 
-def current(board):
-    print_white_rows(50)
+def current(board, first_run=False):
+    if first_run:
+        player_cheer()
+    else:
+        print_white_rows(50)
     board_template_with_numbers()
     print('''
         \t\t       |       |      
@@ -106,40 +129,47 @@ def congratulation(winner):
 
 
 def sultan_wins_ending():
+    lang = set_language_version()
     print_white_rows(4)
-    pl.show_sultan_wins_ending()
+    lang.show_sultan_wins_ending()
     print_white_rows(3)
 
 
 def crusader_wins_ending():
+    lang = set_language_version()
     print_white_rows(4)
-    pl.show_crusader_wins_ending()
+    lang.show_crusader_wins_ending()
     print_white_rows(3)
 
 
 def tie_ending():
+    lang = set_language_version()
     print_white_rows(4)
-    pl.show_tie_ending()
+    lang.show_tie_ending()
     print_white_rows(3)
 
 
 # ERRORS
 
-def error_illegal_move(): 
-    pl.show_error_illegal_move()
+def error_illegal_move():
+    lang = set_language_version()
+    lang.show_error_illegal_move()
 
 
 def error_not_valid_type():
-    pl.show_error_not_valid_type()
+    lang = set_language_version()
+    lang.show_error_not_valid_type()
 
 
 def error_not_crusader():
+    lang = set_language_version()
     print_white_rows(70)
-    pl.show_error_not_crusader()
+    lang.show_error_not_crusader()
     print_white_rows(3)
 
 
 def error_to_many_inputs():
+    lang = set_language_version()
     print_white_rows(70)
-    pl.error_to_many_inputs()
+    lang.error_to_many_inputs()
     print_white_rows(3)
