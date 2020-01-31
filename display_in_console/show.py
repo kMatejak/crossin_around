@@ -16,10 +16,10 @@ def print_available_languages(lang_files_names):
 
 
 def set_language_version():
-    if language == "english":
-        return english
-    else:
+    if language == "polski":
         return polski
+    else:
+        return english
 
 
 def instruction():
@@ -79,7 +79,7 @@ def opening_question(counter):
     lang = set_language_version()
     print_white_rows(70)
     if counter == 0:
-        lang.show_opening_adnotation()
+        lang.show_opening_annotation()
     return lang.show_opening_question()
 
 
@@ -97,8 +97,8 @@ def next_move_ask():
     return show
 
 
-def current(board, first_run=False):
-    if first_run:
+def current(board, is_first_run=False):
+    if is_first_run:
         player_cheer()
     else:
         print_white_rows(50)
