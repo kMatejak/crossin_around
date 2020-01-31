@@ -10,25 +10,28 @@ def game():
     n = 'cxfdks728%@&*^^'
     while n == 'cxfdks728%@&*^^':
         n = show.instruction()
+        if n == "q":
+            data.exit_game()
 
-    # START GAME
+    # SETUP GAME
     try:
-        data.ask_yes_no()
+        is_easter_egg = data.ask_yes_no()
     except TypeError:
         show.error_not_crusader()
         exit()
-
     turn = '+'
-    first_run = True
+    is_first_run = True
     board = data.create_empty_board()
     winner = data.check_winner(turn, board)
 
     # PLAY GAME
     while not winner:
         lights.grid()
-        show.current(board, first_run)
-        if first_run:
-            first_run = False
+        show.current(board, is_first_run)
+        if is_first_run:
+            if is_easter_egg:
+                print(is_easter_egg)
+            is_first_run = False
         move, turn = data.player_moves(turn, board)
         board = move[0]
         shots = move[1]
