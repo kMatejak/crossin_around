@@ -5,7 +5,7 @@ This is a game that I implemented in Python and made my own changes. Tic-tac-toe
 ## What did I add in my version?  
 My extended version of the classic Tic-Tac-Toe is played using the system console. Things I added:  
 - two languages (english and polish) to choose at the beginning of the game  
-- a small plot in which you play the crusader Sir Robin or sultan Emir  
+- a small plot in which you play the crusader Sir Robin or Sultan Emir  
 - 'hot seat' mode, multiplayer game <wink, wink>  
 - optional display of the game on an external device [Novation Launchpad Mini](https://novationmusic.com/launch/launchpad-mini) (If you want to read more about displaying via this device [look at here](https://github.com/maciejjankowski/launchpad-mini-starter))  
 
@@ -29,9 +29,8 @@ Go to the directory where you want to install the game and type:
 ```bash
 git clone https://github.com/kMatejak/crossin_around/
 cd crossin_around
-python app.py
 ```
-Remember, always start the game with the active virtual enviroment (that you created before).  
+Then type `python app.py` to play. Remember, always start the game with the active virtual enviroment (that you created before).  
   
 #### Play with Novation Launchpad Mini  
 If you want to play along with displaying the game on Novation Launchpad Mini just plug on the launchpad to your computer through a USB port.  
