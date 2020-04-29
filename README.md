@@ -3,10 +3,10 @@
 This is a game that I implemented in Python and made my own changes. Tic-tac-toe is a paper-and-pencil game for two players, X and O, who take turns marking the spaces in a 3×3 grid. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.
   
 ## What did I add in my version?  
-My extended version of the classic Tic-Tac-Toe is played using the system console. Things added in my version:  
+My extended version of the classic Tic-Tac-Toe is played using the system console. Things I added:  
 - two languages (english and polish) to choose at the beginning of the game  
 - a small plot in which you play the crusader Sir Robin or sultan Emir  
-- 'hot seat' mode - multiplayer game <wink, wink>  
+- 'hot seat' mode, multiplayer game <wink, wink>  
 - optional display of the game on an external device [Novation Launchpad Mini](https://novationmusic.com/launch/launchpad-mini) (If you want to read more about displaying via this device [look at here](https://github.com/maciejjankowski/launchpad-mini-starter))  
 
 ## Setup and installation  
@@ -34,7 +34,7 @@ python app.py
 Remember, always start the game with the active virtual enviroment (that you created before).  
   
 #### Play with Novation Launchpad Mini  
-If you want to play along with displaying the game on an external device, just plug in the launchpad to your computer with a USB input.  
+If you want to play along with displaying the game on Novation Launchpad Mini just plug on the launchpad to your computer through a USB port.  
   
 ## Gameplay screenshots  
 ![](static/screenshot_001.png)  
