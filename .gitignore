@@ -111,4 +111,6 @@ Tictactoe
 launchpad_test.py
 
 # test data
-data_manager/test_data.py
+data_manager/test_data.py.idea/
+
+.idea/
