@@ -2,12 +2,12 @@
 ## What is Tic-Tac-Toe and why it is important here?  
 This is a game that I implemented in Python and made my own changes. Tic-tac-toe is a paper-and-pencil game for two players, X and O, who take turns marking the spaces in a 3×3 grid. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.
   
-## What is Crossin' Around?  
-My extended version of the classic Tic-Tac-Toe. The game is played using the system console. Things added in my version:  
+## What did I add in my version?  
+My extended version of the classic Tic-Tac-Toe is played using the system console. Things added in my version:  
 - two languages (english and polish) to choose at the beginning of the game  
 - a small plot in which you play the crusader Sir Robin or sultan Emir  
 - 'hot seat' mode - multiplayer game <wink, wink>  
-- optional display of the game on an external device [Novation Launchpad Mini](https://novationmusic.com/launch/launchpad-mini) (If you want to read more about displaying via this launchpad [look at here](https://github.com/maciejjankowski/launchpad-mini-starter))  
+- optional display of the game on an external device [Novation Launchpad Mini](https://novationmusic.com/launch/launchpad-mini) (If you want to read more about displaying via this device [look at here](https://github.com/maciejjankowski/launchpad-mini-starter))  
 
 ## Setup and installation  
 ### Linux Ubuntu  
@@ -38,9 +38,13 @@ If you want to play along with displaying the game on an external device, just p
   
 ## Gameplay screenshots  
 ![](static/screenshot_001.png)  
+  
 ![](static/screenshot_002.png)  
+  
 ![](static/screenshot_003.png)  
+  
 ![](static/screenshot_004.png)  
+  
 ![](static/screenshot_005.png)  
   
 ## Novation Launchpad Mini  
